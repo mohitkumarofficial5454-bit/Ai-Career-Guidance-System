@@ -1,0 +1,588 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f5f7fa;
+    --text-color: #333;
+    --accent-color: #ff6b6b;
+    --success-color: #2ecc71;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #d6e4f0 100%); 
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; 
+    width: 100%;
+}
+
+.container {
+    max-width: 1000px;
+    width: 92%; 
+    margin: 2.5rem auto;
+    padding: 2.5rem;
+    background: #ffffff;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08); 
+    border-radius: 20px;
+    box-sizing: border-box; 
+    transition: transform 0.3s ease;
+}
+
+
+h1 { color: var(--primary-color); font-size: 2.5rem; }
+
+.form-group { margin-bottom: 1.5rem; }
+
+label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.skill-tag {
+    display: inline-block; 
+    padding: 10px 20px;
+    background: #eee;
+    border-radius: 12px;
+    cursor: pointer;
+    margin: 5px;
+    font-weight: 500;
+    
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    border: 2px solid transparent;
+}
+
+
+.skill-tag:hover {
+    background: #e0e0e0;
+    transform: translateY(-4px) scale(1.03); 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: var(--primary-color);
+}
+
+
+.skill-tag.selected {
+    background: var(--primary-color) !important;
+    color: white !important;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 12px; 
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    margin-top: 1rem;
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.2);
+}
+
+button:hover {
+    background: #357abd;
+    transform: translateY(-4px) scale(1.02); 
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+}
+
+button:active {
+    transform: translateY(-1px) scale(1); 
+}
+
+#save-btn {
+    background: var(--success-color);
+    margin-top: 2rem;
+}
+
+.career-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 6px solid var(--primary-color);
+}
+
+.career-match {
+    color: var(--success-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+    h1 { font-size: 1.8rem; }
+    .tag-container { justify-content: center; }
+}
+
+/* Compare Section Styling */
+#comparison-results {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #eef2f7;
+    border-radius: 12px;
+    display: none; /* Pehle se hide rahega */
+}
+/* --- Additional Info Box Fix --- */
+#additional-info {
+    width: 100% !important;   /* Zabardasti poori width lega */
+    min-height: 120px;        /* Height thodi badha di */
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 10px;
+    display: block;           /* Alag line mein rahega */
+    box-sizing: border-box;   /* Width ko control mein rakhega */
+}
+
+#additional-info:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+
+
+.card, .career-card {
+    transition: all 0.3s ease;
+    border-radius: 15px !important;
+}
+
+.card:hover, .career-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+
+.skill-tag {
+    display: inline-block !important; /* Blue line failna band */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.skill-tag:hover {
+    transform: translateY(-4px) scale(1.03) !important; /* Seedha zoom aur lift, no rotate! */
+    background: var(--primary-color) !important;
+    color: white !important;
+    box-shadow: 0 8px 15px rgba(74, 144, 226, 0.3);
+}
+
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #777;
+    margin-top: 2rem;
+}
+
+
+
+.skill-tag:empty {
+    display: none !important;
+}
+
+
+
+
+
+h2 i, .card-title i, .form-group i {
+    color: #4a90e2 !important; 
+    background: rgba(74, 144, 226, 0.1); 
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; 
+    margin-right: 10px; 
+    font-size: 1.2rem;
+}
+
+
+h2, .card-title {
+    color: #2c3e50; 
+    display: flex;
+    align-items: center;
+}
+
+
+/* --- FINAL FULL-WIDTH BLUE HEADER FIX --- */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+header.main-hero {
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%) !important; 
+    width: 100% !important;
+    padding: 60px 20px !important;
+    text-align: center;
+    color: white !important;
+    margin: 0 !important; 
+    display: block;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+
+header.main-hero i {
+    font-size: 5rem !important;
+    margin-bottom: 20px;
+    color: white !important;
+    display: inline-block;
+}
+
+
+header.main-hero h1 {
+    color: white !important;
+    font-size: 3.2rem !important;
+    font-weight: 800;
+    margin: 0;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+}
+
+header.main-hero p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 1.2rem;
+    margin-top: 15px;
+}
+
+
+.app-container {
+    margin-top: 40px !important;
+}
+
+
+/* --- THE ULTIMATE FULL-WIDTH HEADER --- */
+
+
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+
+header.main-hero {
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%) !important;
+    width: 100vw !important; /* viewport width */
+    margin: 0 !important;
+    padding: 60px 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white !important;
+}
+
+header.main-hero i {
+    font-size: 5rem !important;
+    color: white !important;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+header.main-hero h1 {
+    color: white !important;
+    font-size: 3rem !important;
+    font-weight: 800 !important;
+    margin: 0 !important;
+}
+
+header.main-hero p {
+    color: rgba(255,255,255,0.9) !important;
+    font-size: 1.2rem !important;
+    margin-top: 10px !important;
+}/* --- THE ULTIMATE FULL-WIDTH HEADER --- */
+
+
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+
+#auth-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    display: none; justify-content: center; align-items: center;
+    z-index: 10000; /* Sabse upar */
+}
+
+.auth-card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    width: 100%; max-width: 380px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.auth-card h2 { color: #4a90e2; margin-bottom: 5px; }
+.auth-card input {
+    width: 100%; padding: 12px; margin: 10px 0;
+    border: 1px solid #ddd; border-radius: 8px;
+}
+
+.pro-btn {
+    width: 100%; padding: 12px; background: #4a90e2;
+    color: white; border: none; border-radius: 8px;
+    font-weight: bold; cursor: pointer; margin-top: 10px;
+}
+
+.toggle-text { margin-top: 15px; font-size: 14px; }
+.toggle-text a { color: #4a90e2; font-weight: bold; text-decoration: none; }
+
+
+/* --- FINAL LOGOUT BUTTON FIX --- */
+
+header.main-hero {
+    position: relative !important; /* Button ko header ke andar lock karne ke liye */
+}
+
+#logout-btn {
+    position: absolute !important;
+    top: 20px;
+    right: 20px;
+    background-color: white !important;
+    color: #4a90e2 !important; /* Tera primary blue color */
+    padding: 8px 18px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 9999; /* Taaki sabse upar dikhe */
+    transition: all 0.3s ease;
+    display: none; /* Login se pehle nahi dikhega */
+}
+
+#logout-btn:hover {
+    background-color: #f0f0f0 !important;
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* --- Professional Logout Button --- */
+header.main-hero {
+    position: relative !important; /* Button ko header ke andar lock karne ke liye */
+}
+
+#logout-btn {
+    position: absolute !important;
+    top: 25px;
+    right: 25px;
+    width: auto !important; /* Poori patti pe failna band */
+    padding: 10px 20px !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 50px !important; /* Capsule shape */
+    font-size: 14px !important;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease !important;
+    display: none; /* JS handle karega */
+    backdrop-filter: blur(5px);
+}
+
+#logout-btn:hover {
+    background: white !important;
+    color: #4a90e2 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#logout-btn i {
+    font-size: 14px !important;
+    margin-right: 8px;
+    color: inherit !important;
+}
+/* --- Professional Capsule Logout Button --- */
+
+#logout-btn {
+    position: absolute !important;
+    top: 10px;
+    right: 30px;
+    width: auto !important; /* Patti pe failna band */
+    padding: 10px 22px !important;
+    background-color: white !important; /* White button */
+    color: #4a90e2 !important; /* Blue text (match primary color) */
+    border: none !important;
+    border-radius: 50px !important; /* Capsule Shape */
+    font-size: 15px !important;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    display: none; /* JS handle karega */
+}
+
+/* Hover Effect: Zoom, Lift, aur Shadow */
+#logout-btn:hover {
+    background-color: #f0f0f0 !important;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Button ke andar ka icon */
+#logout-btn i {
+    font-size: 15px !important;
+    margin-right: 8px;
+    color: #4a90e2 !important;
+}
+
+/* Purane #splash-screen ko isse badal de */
+#splash-screen {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    /* Premium Techy Gradient */
+    background: linear-gradient(-45deg, #e3f2fd, #ffffff, #eef2f3, #d1e3ff);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    z-index: 999999;
+    overflow: hidden; /* Taaki bubbles bahar na dikhein */
+    transition: all 0.8s ease;
+}
+
+/* Background movement animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Robot Floating Animation */
+.robot-icon {
+    font-size: 80px;
+    color: #4a90e2;
+    margin-bottom: 20px;
+    animation: floatRobot 2s ease-in-out infinite;
+}
+
+@keyframes floatRobot {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Loading Bar Design */
+.loading-container {
+    width: 250px; height: 10px;
+    background: #e0e0e0;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 10px;
+    border: 1px solid #4a90e2;
+}
+
+#progress-bar {
+    width: 0%; height: 100%;
+    background: linear-gradient(90deg, #4a90e2, #63b3ed, #4a90e2);
+    background-size: 200% 100%;
+    animation: waveFlow 1.5s linear infinite;
+    transition: width 0.1s ease-in-out;
+}
+
+@keyframes waveFlow {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+.loading-text {
+    margin-top: 15px;
+    font-family: 'Poppins', sans-serif;
+    color: #4a90e2;
+    font-weight: 600;
+}
+
+/* Screen Hide karne ke liye class */
+.splash-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Floating Background Bubbles */
+.bg-bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(74, 144, 226, 0.15); /* Halka blue color */
+    filter: blur(50px);
+    z-index: -1; /* Robot ke piche rahenge */
+}
+
+.b1 { width: 350px; height: 350px; top: -100px; left: -50px; animation: floatObj 8s infinite alternate; }
+.b2 { width: 450px; height: 450px; bottom: -150px; right: -50px; animation: floatObj 12s infinite alternate-reverse; }
+.b3 { width: 250px; height: 250px; top: 30%; right: 10%; animation: floatObj 10s infinite ease-in-out; }
+
+@keyframes floatObj {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(60px, 80px) scale(1.1); }
+}
+
+/* Robot ke niche halki glow */
+.robot-icon {
+    filter: drop-shadow(0 10px 20px rgba(74, 144, 226, 0.4));
+}
+
+
+
+/* Pura page smooth scroll karega */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Nav Button Style (Blue patti ke liye) */
+.nav-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 20px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2); /* Halka transparent white */
+    transition: 0.3s;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Logout button ke alignment ke liye (agar zarurat ho) */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
